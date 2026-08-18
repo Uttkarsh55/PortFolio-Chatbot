@@ -16,14 +16,22 @@ model='openai/gpt-oss-20b'
 
 app=FastAPI()
 
+# 1. Define exactly who is allowed to talk to your API
+ALLOWED_ORIGINS = [
+    "http://127.0.0.1:5500",             # Standard VS Code Live Server
+    "http://localhost:3000",             # Standard React local port
+    "https://your-future-website.com",   # Example: Where you will host your frontend
+    "https://uttkarsh55.github.io"       # Example: GitHub pages domain
+]
 
+# 2. Lock down the middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['*'],
-    allow_methods=['*'],
-    allow_headers=['*']
+    allow_origins=ALLOWED_ORIGINS, 
+    allow_credentials=True,
+    allow_methods=["POST"],              # We only have POST routes, no need for '*'
+    allow_headers=["*"],
 )
-
 #load profile once at startup
 
 with open('user_profile_data.json','r') as f:
@@ -171,7 +179,9 @@ async def chat_endpoint(request: ChatRequest):
     
     # 4. Call Groq
     answer = ask_llm(messages_for_groq)
-    return {"response": answer}    
+    return {"response": answer}   
+
+ 
 @app.post('/evaluate-jd')
 async def evaluate_jd_endpoint(file:UploadFile=File(...)):
     # Read the file directory into memory
