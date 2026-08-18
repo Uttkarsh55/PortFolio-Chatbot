@@ -83,7 +83,7 @@ class Profile(BaseModel):
     mobile_number : int
     college : str
     education : list[str]
-    total_experience_years : float | None = None
+    total_experience_years : str | None = None
     experience : list[Experience] = [] 
     skills : list[str]
     projects : list[str] | None
@@ -111,6 +111,7 @@ system_prompt=f'''
     
         These may all contain relevant experience.
         Do Not Extract Experience From heading Named "PROJECTS" or "projects".
+        If the Duration of the Internship is not present, Calculate it by the gap between the start and end month of the Internship and add
         Skills may also appear in the skills section, work experience,
         internships or projects.
     

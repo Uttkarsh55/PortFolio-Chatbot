@@ -10,21 +10,22 @@
         "Senior Secondary (Class XII) | Board (CBSE) 2023, Bal Jyoti Public School, Ghaziabad, Uttar Pradesh (75.4 %)",
         "Secondary (Class X) | Board (CBSE) 2021, S.A. Jain Senior Model School, Ambala, Haryana (87 %)"
     ],
-    "total_experience_years": null,
+    "total_experience_years": "2 months",
     "experience": [
         {
             "company_name": "Larsen & Toubro (L&T) Construction",
+            "role": "AI Engineering Intern",
             "duration": 2,
             "skills_used": [
+                "Python",
                 "Groq API",
                 "Llama 3",
-                "dynamic prompt routing",
-                "semantic intent classification",
-                "Pydantic",
                 "FastAPI",
-                "Python"
+                "Pydantic",
+                "Prompt Engineering",
+                "Dynamic Prompt Routing",
+                "Semantic Intent Classification"
             ],
-            "role": "AI Engineering Intern (Maligaon Saraighat Bridge Project)",
             "description": "Built a Resume Parser using Groq API, Llama 3, dynamic prompt routing, and semantic intent classification. Optimized LLM calls via prompt chaining and integrated Pydantic with FastAPI for structured data validation."
         }
     ],
@@ -48,15 +49,11 @@
         "Jupyter Notebook",
         "System Design",
         "Dynamic Prompt Routing",
-        "Semantic Intent Classification",
-        "Multi-Agent Frameworks",
-        "BeautifulSoup",
-        "Selenium",
-        "PostgreSQL"
+        "Semantic Intent Classification"
     ],
     "projects": [
-        "AI Portfolio Representative (Aug 2026): Developed a conversational AI agent using Groq API and Llama 3 for automated JD evaluations and interactive Q&A. Implemented dynamic prompt routing, conversation state memory, and strict data validation using Pydantic. Technologies used: Python, Groq API, Llama 3, Pydantic, FastAPI.",
-        "Fair Hiring Network (Jan 2026): Developed a multi-agent AI system with automated verification and bias detection to streamline recruitment. Built pipelines to scrape and analyze portfolio metrics from LeetCode and Codeforces for competency scoring. Technologies used: Python, Multi-Agent Frameworks, BeautifulSoup, Selenium, FastAPI, PostgreSQL."
+        "AI Portfolio Representative (Aug 2026): Developed a conversational AI agent using Groq API and Llama 3 for automated JD evaluations and interactive Q&A. Implemented dynamic prompt routing, conversation state memory, and strict data validation using Pydantic.",
+        "Fair Hiring Network (Jan 2026): Developed a multi-agent AI system with automated verification and bias detection to streamline recruitment. Built pipelines to scrape and analyze portfolio metrics from LeetCode and Codeforces for competency scoring."
     ],
     "certifications": [
         "Python Course Certification from Kaggle"
