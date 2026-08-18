@@ -1,10 +1,7 @@
 # Ignore specific file
 **/.env
 **/tempCodeRunnerFile.py
-**/chat3.py
-**/profile.py
-**/user_profile_data.json
-**/jd.txt
+
 #Ignore an entire folder
 *.venv/
 *.Resume

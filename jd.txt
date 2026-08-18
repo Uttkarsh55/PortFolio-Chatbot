@@ -1,0 +1,68 @@
+Position Summary:
+
+“We are going to relentlessly chase perfection, knowing full well we will not catch it, because nothing is perfect. But we are going to chase it because, in the process, we will catch excellence.” — Vince Lombardi
+
+If you are seeking to work hard and pursue excellence, then you might be right for our team! Our AI Engineers are responsible for designing, developing, and deploying advanced Generative AI solutions to support innovative product capabilities across MyAdvice. This role focuses on building scalable AI systems, including LLM-powered pipelines, AI agents, and retrieval-augmented generation (RAG) solutions. You’ll work closely with cross-functional teams to turn business problems into intelligent, automated, and reliable AI-powered experiences.
+The ideal candidate is deeply hands-on with modern LLM ecosystems, can work with frameworks like LangChain and vector databases, and has experience fine-tuning and optimising foundation models, including GPT, LLaMA, Gemini and similar architectures. This position requires a strong grasp of Python, cloud platforms, MLOps processes, and production deployment standards.
+If you are passionate about Generative AI, constantly tinkering with new techniques, love solving complex problems, and want to build real-world AI systems at scale, you’ll thrive in this position!
+
+Essential Duties
+Design, build, and deploy Generative AI applications, including chat systems, AI agents, automated workflows, and intelligent content pipelines.
+Develop and maintain RAG (retrieval-augmented generation) architectures using vector stores (e.g., Pinecone, FAISS, Weaviate).
+Fine-tune and evaluate large language models (LLMs), including GPT models, LLaMA, Gemini, and other modern architectures.
+Implement prompt engineering strategies, prompt templates, and reusable frameworks to enhance model reliability and output quality.
+Build end-to-end production-ready AI pipelines including data ingestion, preprocessing, training, evaluation, and continuous monitoring.
+Develop tools and internal frameworks that accelerate model experimentation, evaluation, and deployment.
+Integrate AI solutions into existing MyAdvice systems through REST APIs, microservices, or application middleware.
+Collaborate with engineering, product, and client success teams to identify opportunities for automation and AI-powered enhancements.
+Apply software engineering best practices including version control, code reviews, CI/CD, and automated testing for ML systems.
+Stay current with rapid advances in AI, LLMs, multimodal models, embeddings, and MLOps technologies; propose improvements and new capabilities.
+Provide technical guidance, documentation, and internal knowledge sharing related to Generative AI frameworks and production workflows.
+
+Required Skills + Experience
+
+Core Technical Skills
+Strong proficiency in Python (must).
+Solid understanding of data structures, algorithms, and software design principles.
+Experience with transformer-based LLMs and modern AI frameworks.
+Hands-on with LangChain, LlamaIndex, HuggingFace Transformers, or equivalent.
+Experience building RAG pipelines, embedding models, and vector database integrations.
+Familiarity with AI agent frameworks and multi-step generative workflows.
+Ability to fine-tune LLMs (supervised tuning, LoRA, QLoRA, PEFT, etc.).
+Cloud, DevOps & MLOps
+Experience deploying ML systems on AWS / GCP.
+Proficiency with containerization: Docker, Kubernetes.
+Understanding of distributed computing, model hosting, and serverless deployments.
+Experience with MLOps tooling: MLflow, Weights & Biases, Sagemaker, Vertex AI, etc.
+Familiarity with CI/CD pipelines, Git workflows, and testing automation for ML.
+Model & Pipeline Development
+Experience working with GPT, LLaMA, Claude, Gemini or similar LLMs.
+Knowledge of embeddings, tokenization, prompt engineering, and model optimization.
+Experience building or contributing to production-grade AI pipelines.
+General Skills
+Excellent written and verbal communication skills with high professionalism.
+Strong attention to detail, critical thinking, and problem-solving ability.
+Ability to manage multiple priorities and communicate progress effectively.
+Demonstrated curiosity, adaptability, and willingness to learn cutting-edge AI innovations.
+
+Qualifications
+1–3 years of experience in AI/ML engineering, software engineering, or a related field.
+Bachelor’s degree in Computer Science, Engineering, AI/ML, or related field preferred.
+Prior experience deploying AI solutions in a production or enterprise environment.
+Legally authorized to work in India.
+High-speed internet to support remote work.
+
+About MyAdvice
+"We will chase perfection, and we will chase it relentlessly, knowing all the while we can never attain it. But along the way, we shall catch excellence.” — Vince Lombardi
+
+At MyAdvice, we’re not just helping businesses grow — we’re building a smarter way to do it. Our AI-powered Success Center is a profitability engine that empowers service professionals to add revenue without adding cost. Through intelligent marketing, automation, and streamlined operations, we help our clients convert more opportunities, work more efficiently, and scale sustainably.
+
+With over 20 years of expertise and a culture built on grit, growth, and accountability, we’ve evolved from digital marketing roots into a true growth system company. Our platform replaces fragmented tools and disconnected efforts with a unified, data-driven engine — all designed to drive measurable ROI and long-term client success.
+
+We believe in building a company as dynamic and resilient as the clients we serve. That starts with people.
+
+We are deeply committed to inclusion and diversity. We know the most creative solutions come from different voices, perspectives, and lived experiences. Studies show some people may hesitate to apply unless they meet every qualification. If you bring grit, curiosity, and a commitment to learning — we want to hear from you. Skills can be taught. Mindset matters more.
+
+As a performance-driven organization experiencing rapid growth, we value transparency, teamwork, and relentless improvement. We champion career development, continuous learning, and work-life balance — all within a collaborative, energizing environment where your work makes a real impact.
+
+At MyAdvice, your ideas matter. Your growth matters. And your effort drives real outcomes for our clients and company alike.

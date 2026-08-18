@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uttkarsh AI Representative</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Marked.js CDN (For parsing LLM Markdown) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
+  <style>
+    /* Custom Scrollbar Styling */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    
+    /* Blinking Terminal Cursor */
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .animate-blink { animation: blink 1s infinite; }
+
+    /* Markdown Render Styling */
+    .markdown-body { font-size: 14px; line-height: 1.6; }
+    .markdown-body table { width: 100%; border-collapse: collapse; margin: 1em 0; }
+    .markdown-body th, .markdown-body td { border: 1px solid #e2e8f0; padding: 8px; text-align: left; }
+    .markdown-body th { background-color: #f8fafc; }
+    .markdown-body ul { list-style-type: disc; padding-left: 20px; margin-bottom: 1em; }
+    .markdown-body p { margin-bottom: 1em; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased h-screen overflow-hidden flex">
+
+  <!-- ================= MAIN CHAT AREA ================= -->
+  <main class="flex-1 bg-white flex flex-col justify-between h-full relative overflow-hidden">
+    <!-- Chat Header -->
+    <header class="h-16 border-b border-gray-100 px-8 flex items-center justify-between bg-white shrink-0">
+      <div class="flex items-center gap-3">
+        <h1 id="chat-title" class="text-lg font-bold text-gray-800">AI Assistant</h1>
+        <span class="text-[10px] font-semibold bg-indigo-50 text-indigo-600 border border-indigo-200 px-2 py-0.5 rounded-md uppercase tracking-wide">Live API</span>
+      </div>
+    </header>
+
+    <!-- Messages Container (Cleared out dummy messages) -->
+    <div id="messages-container" class="flex-1 overflow-y-auto px-8 py-6 space-y-6">
+       <!-- AI Intro Message -->
+       <div class="flex gap-4 max-w-3xl">
+        <div class="w-8 h-8 rounded-lg bg-emerald-500 text-white font-bold text-xs flex items-center justify-center shrink-0">
+          <i data-lucide="bot" class="w-5 h-5"></i>
+        </div>
+        <div class="space-y-3 w-full">
+          <div class="font-semibold text-sm text-gray-900">AI Representative</div>
+          <div class="text-sm text-gray-700 leading-relaxed space-y-3">
+            <p>Hello! I am Uttkarsh's AI Representative. You can ask me questions about his skills, experience, or upload a Job Description (.txt) to evaluate his fit for a role.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Footer Area -->
+    <div class="p-6 bg-white border-t border-gray-100 shrink-0 max-w-4xl mx-auto w-full">
+      <!-- Attached Preview Badge Container -->
+      <div id="attachment-preview" class="hidden mb-2 flex items-center gap-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-indigo-50 border border-indigo-200 text-indigo-700 rounded-lg text-xs font-medium">
+          <i data-lucide="file" class="w-3.5 h-3.5"></i>
+          <span id="attachment-name">file.png</span>
+          <button id="remove-attachment" class="hover:text-red-500 ml-1"><i data-lucide="x" class="w-3.5 h-3.5"></i></button>
+        </div>
+      </div>
+
+      <!-- Rounded Input Box -->
+      <div class="relative flex items-center bg-gray-50 border border-gray-200 rounded-full px-4 py-2.5 shadow-sm focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500 transition-all">
+        <!-- Attach File Button -->
+        <label for="file-upload" class="cursor-pointer text-gray-400 hover:text-gray-600 p-1 mr-2 transition">
+          <i data-lucide="paperclip" class="w-5 h-5"></i>
+        </label>
+        <input id="file-upload" type="file" accept=".txt" class="hidden">
+
+        <!-- Message Text Input -->
+        <input id="chat-input" type="text" placeholder="Ask about my resume or upload a JD..." class="w-full bg-transparent border-none outline-none text-sm text-gray-800 placeholder-gray-400 pr-10">
+
+        <!-- Send Button -->
+        <button id="send-btn" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full flex items-center justify-center transition shadow">
+          <i data-lucide="arrow-up" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Footer Help Note -->
+      <div class="text-center text-[11px] text-gray-400 mt-2">
+        Press Enter to send. Upload a .txt file for Job Description evaluation.
+      </div>
+    </div>
+  </main>
+
+  <!-- ================= RIGHT SIDEBAR ================= -->
+  <aside class="w-80 bg-gray-50/80 border-l border-gray-200 flex flex-col justify-between shrink-0 h-full p-5 overflow-y-auto">
+    <div class="space-y-6">
+      <!-- Right Sidebar Header -->
+      <div>
+        <div class="flex items-center gap-2 font-bold text-gray-800 text-sm">
+          <i data-lucide="monitor" class="w-4 h-4 text-indigo-600"></i>
+          Input Mirror
+        </div>
+        <p class="text-xs text-gray-500 mt-0.5">Real-time terminal visualization of your query</p>
+      </div>
+
+      <!-- Virtual Monitor Component -->
+      <div class="flex flex-col items-center">
+        <!-- Monitor Frame -->
+        <div class="w-full bg-gray-300 rounded-xl p-2.5 shadow-md border border-gray-400">
+          <div class="bg-gray-900 rounded-lg p-3 min-h-[140px] max-h-[180px] font-mono text-xs text-emerald-400 overflow-hidden flex flex-col justify-start leading-relaxed shadow-inner">
+            <div class="text-gray-500 mb-1">root@api:~#</div>
+            <div id="terminal-screen" class="break-words whitespace-pre-wrap text-emerald-400">
+              <span class="text-gray-600 italic">Waiting for input...</span>
+            </div>
+            <span class="inline-block w-2 h-3.5 bg-emerald-400 animate-blink mt-1"></span>
+          </div>
+        </div>
+        <!-- Monitor Stand Neck & Base -->
+        <div class="w-6 h-6 bg-gray-300 border-x border-gray-400"></div>
+        <div class="w-24 h-2 bg-gray-400 rounded-full shadow-sm"></div>
+      </div>
+
+      <!-- System Status Card -->
+      <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm space-y-3">
+        <h4 class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">API Status</h4>
+        <div class="flex items-center gap-2 text-xs font-semibold text-gray-700">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Connected to Groq Fast-Inference
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    const chatInput = document.getElementById('chat-input');
+    const terminalScreen = document.getElementById('terminal-screen');
+    const sendBtn = document.getElementById('send-btn');
+    const messagesContainer = document.getElementById('messages-container');
+    const fileUpload = document.getElementById('file-upload');
+    const attachmentPreview = document.getElementById('attachment-preview');
+    const attachmentName = document.getElementById('attachment-name');
+    const removeAttachmentBtn = document.getElementById('remove-attachment');
+
+    let currentAttachment = null;
+    let chatHistory = []; 
+
+    // 1. Live Input Mirror on Side Monitor
+    chatInput.addEventListener('input', (e) => {
+      const val = e.target.value;
+      if (val.trim() === '') {
+        terminalScreen.innerHTML = `<span class="text-gray-600 italic">Waiting for input...</span>`;
+      } else {
+        terminalScreen.textContent = val;
+      }
+    });
+
+    // 2. Handle File Upload UI
+    fileUpload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        currentAttachment = file;
+        attachmentName.textContent = `${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+        attachmentPreview.classList.remove('hidden');
+      }
+    });
+
+    removeAttachmentBtn.addEventListener('click', () => {
+      currentAttachment = null;
+      fileUpload.value = '';
+      attachmentPreview.classList.add('hidden');
+    });
+
+    // 3. Render AI Message (Now using Marked.js)
+    function appendAssistantMessage(text, isError = false) {
+      const colorClass = isError ? 'text-red-600' : 'text-gray-700';
+      
+      // Parse markdown into HTML if no error, else just show text
+      const parsedHtml = isError ? text : marked.parse(text);
+      
+      const aiMsgHtml = `
+        <div class="flex gap-4 max-w-3xl">
+          <div class="w-8 h-8 rounded-lg ${isError ? 'bg-red-500' : 'bg-emerald-500'} text-white font-bold text-xs flex items-center justify-center shrink-0">
+            <i data-lucide="bot" class="w-5 h-5"></i>
+          </div>
+          <div class="space-y-3 w-full overflow-x-auto">
+            <div class="font-semibold text-sm text-gray-900">AI Representative</div>
+            <div class="text-sm ${colorClass} leading-relaxed markdown-body">
+              ${parsedHtml}
+            </div>
+          </div>
+        </div>
+      `;
+      messagesContainer.insertAdjacentHTML('beforeend', aiMsgHtml);
+      lucide.createIcons();
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    // 4. Show/Hide Loading Typing Indicator
+    function toggleLoading(show) {
+      if (show) {
+        const loadingHtml = `
+          <div id="loading-indicator" class="flex gap-4 max-w-3xl">
+            <div class="w-8 h-8 rounded-lg bg-emerald-500/50 text-white font-bold text-xs flex items-center justify-center shrink-0">
+              <i data-lucide="loader" class="w-4 h-4 animate-spin"></i>
+            </div>
+            <div class="space-y-1">
+              <div class="font-semibold text-sm text-gray-900">AI Representative</div>
+              <p class="text-sm text-gray-500 italic">Processing via Fast-Inference...</p>
+            </div>
+          </div>
+        `;
+        messagesContainer.insertAdjacentHTML('beforeend', loadingHtml);
+      } else {
+        const indicator = document.getElementById('loading-indicator');
+        if (indicator) indicator.remove();
+      }
+      lucide.createIcons();
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    // 5. Send Request to Backend API
+    async function sendMessage() {
+      const text = chatInput.value.trim();
+      if (!text && !currentAttachment) return;
+
+      const fileToSend = currentAttachment;
+
+      let attachmentHtml = '';
+      if (fileToSend) {
+        attachmentHtml = `
+          <div class="flex items-center gap-3 p-3 bg-gray-50 border border-gray-200 rounded-xl w-fit mt-2">
+            <div class="w-10 h-10 bg-gray-200 text-gray-500 rounded-lg flex items-center justify-center">
+              <i data-lucide="file" class="w-5 h-5"></i>
+            </div>
+            <div class="pr-4">
+              <div class="text-sm font-semibold text-gray-800">${fileToSend.name}</div>
+            </div>
+          </div>
+        `;
+      }
+
+      const userMsgHtml = `
+        <div class="flex gap-4 max-w-3xl">
+          <div class="w-8 h-8 rounded-lg bg-indigo-600 text-white font-bold text-xs flex items-center justify-center shrink-0">
+            G
+          </div>
+          <div class="space-y-1">
+            <div class="font-semibold text-sm text-gray-900">You</div>
+            ${text ? `<p class="text-sm text-gray-700 leading-relaxed">${escapeHtml(text)}</p>` : ''}
+            ${attachmentHtml}
+          </div>
+        </div>
+      `;
+
+      messagesContainer.insertAdjacentHTML('beforeend', userMsgHtml);
+
+      chatInput.value = '';
+      terminalScreen.innerHTML = `<span class="text-gray-600 italic">Waiting for input...</span>`;
+      currentAttachment = null;
+      fileUpload.value = '';
+      attachmentPreview.classList.add('hidden');
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+      toggleLoading(true);
+
+      try {
+        if (fileToSend) {
+          if (!fileToSend.name.endsWith('.txt')) {
+            throw new Error("Only .txt files are supported for Job Description evaluations.");
+          }
+
+          const formData = new FormData();
+          formData.append("file", fileToSend);
+
+          const response = await fetch("http://127.0.0.1:8000/evaluate-jd", {
+            method: "POST",
+            body: formData
+          });
+
+          if (!response.ok) throw new Error("Server error processing JD file.");
+          
+          const data = await response.json();
+          toggleLoading(false);
+          appendAssistantMessage(`**Evaluation Complete for ${data.Filename}**\n\n${data.evaluation}`);
+        } 
+        
+        else if (text) {
+          chatHistory.push({ role: "user", content: text });
+
+          const response = await fetch("http://127.0.0.1:8000/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ messages: chatHistory })
+          });
+
+          if (!response.ok) throw new Error("Server error processing chat.");
+
+          const data = await response.json();
+          const aiResponse = data.response;
+          
+          chatHistory.push({ role: "assistant", content: aiResponse });
+          toggleLoading(false);
+          appendAssistantMessage(aiResponse);
+        }
+      } catch (error) {
+        toggleLoading(false);
+        appendAssistantMessage(error.message, true);
+      }
+    }
+
+    sendBtn.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+{
+    "name": "Uttkarsh Monga",
+    "age": null,
+    "email": "work.uttkarsh14@gmail.com",
+    "profile": "Final-year B.Tech IT student specializing in AI Engineering, with recent applied experience at Larsen & Toubro (L&T) focusing on Large Language Model (LLM) integration.",
+    "mobile_number": 8287116304,
+    "college": "ABES Institute of Technology, Ghaziabad, Uttar Pradesh",
+    "education": [
+        "Bachelor of Technology in Information Technology 2023 \u2013 2027",
+        "Senior Secondary (Class XII) | Board (CBSE) 2023",
+        "Secondary (Class X) | Board (CBSE) 2021"
+    ],
+    "total_experience_years": null,
+    "experience": [
+        {
+            "company_name": "Larsen & Toubro (L&T) Construction",
+            "duration": null,
+            "skills_used": [
+                "Groq API",
+                "Llama 3",
+                "dynamic prompt routing",
+                "semantic intent classification",
+                "Pydantic",
+                "FastAPI"
+            ],
+            "role": "AI Engineering Intern",
+            "description": "Built a Resume Parser using Groq API, Llama 3, dynamic prompt routing, and semantic intent classification. Optimized LLM calls via prompt chaining and integrated Pydantic with FastAPI for structured data validation."
+        }
+    ],
+    "skills": [
+        "Python",
+        "C",
+        "C++",
+        "LLMs (Llama 3)",
+        "Groq API",
+        "Ollama",
+        "Prompt Engineering",
+        "Pydantic",
+        "Data Preprocessing",
+        "Feature Engineering",
+        "NumPy",
+        "Pandas",
+        "SQL",
+        "FastAPI",
+        "Git",
+        "GitHub",
+        "Jupyter Notebook",
+        "System Design",
+        "Dynamic Prompt Routing",
+        "Semantic Intent Classification"
+    ],
+    "projects": [
+        "AI Portfolio Representative",
+        "Fair Hiring Network"
+    ],
+    "certifications": [
+        "Python Course Certification from Kaggle"
+    ],
+    "achievements": [
+        "Track Prize Winner, HackJNU",
+        "Participated in various hackathons and developed end-to-end projects demonstrating problem-solving skills and teamwork"
+    ]
+}
