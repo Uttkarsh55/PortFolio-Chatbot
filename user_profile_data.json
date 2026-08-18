@@ -2,28 +2,29 @@
     "name": "Uttkarsh Monga",
     "age": null,
     "email": "work.uttkarsh14@gmail.com",
-    "profile": "Final-year B.Tech IT student specializing in AI Engineering, with recent applied experience at Larsen & Toubro (L&T) focusing on Large Language Model (LLM) integration.",
+    "profile": "Final-year B.Tech IT student specializing in AI Engineering, with recent applied experience at Larsen & Toubro (L&T) focusing on Large Language Model (LLM) integration. Pro\ufb01cient in developing Python-based ML pipelines and AI agents using prompt engineering, Pydantic validation, and the Groq API. Applied NumPy, Pandas, SQL to build data-driven solutions. Strong in system design, semantic intent routing, and rapid prototyping under competitive timelines.",
     "mobile_number": 8287116304,
     "college": "ABES Institute of Technology, Ghaziabad, Uttar Pradesh",
     "education": [
-        "Bachelor of Technology in Information Technology 2023 \u2013 2027",
-        "Senior Secondary (Class XII) | Board (CBSE) 2023",
-        "Secondary (Class X) | Board (CBSE) 2021"
+        "Bachelor of Technology in Information Technology 2023 \u2013 2027, ABES Institute of Technology, Ghaziabad, Uttar Pradesh (Currently in Final Year)",
+        "Senior Secondary (Class XII) | Board (CBSE) 2023, Bal Jyoti Public School, Ghaziabad, Uttar Pradesh (75.4 %)",
+        "Secondary (Class X) | Board (CBSE) 2021, S.A. Jain Senior Model School, Ambala, Haryana (87 %)"
     ],
     "total_experience_years": null,
     "experience": [
         {
             "company_name": "Larsen & Toubro (L&T) Construction",
-            "duration": null,
+            "duration": 2,
             "skills_used": [
                 "Groq API",
                 "Llama 3",
                 "dynamic prompt routing",
                 "semantic intent classification",
                 "Pydantic",
-                "FastAPI"
+                "FastAPI",
+                "Python"
             ],
-            "role": "AI Engineering Intern",
+            "role": "AI Engineering Intern (Maligaon Saraighat Bridge Project)",
             "description": "Built a Resume Parser using Groq API, Llama 3, dynamic prompt routing, and semantic intent classification. Optimized LLM calls via prompt chaining and integrated Pydantic with FastAPI for structured data validation."
         }
     ],
@@ -47,17 +48,21 @@
         "Jupyter Notebook",
         "System Design",
         "Dynamic Prompt Routing",
-        "Semantic Intent Classification"
+        "Semantic Intent Classification",
+        "Multi-Agent Frameworks",
+        "BeautifulSoup",
+        "Selenium",
+        "PostgreSQL"
     ],
     "projects": [
-        "AI Portfolio Representative",
-        "Fair Hiring Network"
+        "AI Portfolio Representative (Aug 2026): Developed a conversational AI agent using Groq API and Llama 3 for automated JD evaluations and interactive Q&A. Implemented dynamic prompt routing, conversation state memory, and strict data validation using Pydantic. Technologies used: Python, Groq API, Llama 3, Pydantic, FastAPI.",
+        "Fair Hiring Network (Jan 2026): Developed a multi-agent AI system with automated verification and bias detection to streamline recruitment. Built pipelines to scrape and analyze portfolio metrics from LeetCode and Codeforces for competency scoring. Technologies used: Python, Multi-Agent Frameworks, BeautifulSoup, Selenium, FastAPI, PostgreSQL."
     ],
     "certifications": [
         "Python Course Certification from Kaggle"
     ],
     "achievements": [
-        "Track Prize Winner, HackJNU",
-        "Participated in various hackathons and developed end-to-end projects demonstrating problem-solving skills and teamwork"
+        "Track Prize Winner, HackJNU: Recognized for developing the Fair Hiring Network, an AI-driven objective recruitment system.",
+        "Hackathons: Participated in various hackathons and developed end-to-end projects demonstrating problem-solving skills and teamwork."
     ]
 }
